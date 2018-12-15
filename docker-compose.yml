@@ -1,11 +1,19 @@
 version: '3'
 services:
-#  webserver:
-#    build:
-#      context: .
-#      dockerfile: docker/webserver/Dockerfile
-#    ports:
-#      - "5000:5000"
+  webserver:
+    build:
+      context: .
+      dockerfile: docker/webserver/Dockerfile
+    ports:
+      - "8080:80"
+    networks:
+      - backend
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/var/www:ro
+    links:
+      - database
   database:
     build:
       context: .
@@ -23,17 +31,5 @@ services:
     tty: true
     stdin_open: true
     restart: always
-  php:
-    build:
-      context: .
-      dockerfile: docker/php/Dockerfile
-    networks:
-      - backend
-    tty: true
-    stdin_open: true
-    volumes:
-      - .:/app
-    links:
-      - database
 networks:
   backend:
