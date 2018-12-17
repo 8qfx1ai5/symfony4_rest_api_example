@@ -27,6 +27,7 @@ services:
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_USER: 'root'
       MYSQL_PASS: 'root'
+      MYSQL_DATABASE: 'shop'
     ports:
       - "3306:3306"
     networks:
