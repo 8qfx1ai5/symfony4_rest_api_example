@@ -1,0 +1,10 @@
+version: '3'
+services:
+  tools:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    stdin_open: true
+    volumes:
+      - ../..:/app
