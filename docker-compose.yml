@@ -12,6 +12,7 @@ services:
     stdin_open: true
     volumes:
       - .:/var/www:ro
+      - ./var:/var/www/var
     links:
       - database
     environment:
