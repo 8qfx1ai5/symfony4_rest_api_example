@@ -11,7 +11,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - .:/var/www:ro
+      - .:/var/www
       - ./var:/var/www/var
     links:
       - database
